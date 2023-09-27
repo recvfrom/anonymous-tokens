@@ -247,6 +247,7 @@ absl::StatusOr<std::pair<RSAPublicKey, RSAPrivateKey>> GetStandardRsaKeyPair(
 absl::StatusOr<std::pair<RSAPublicKey, RSAPrivateKey>> GetStrongRsaKeys2048() {
   std::string path = absl::StrCat(::anonymous_tokens::GetTestdataPath(),
                                   "strong_rsa_modulus2048_example.binarypb");
+  std::cout << "GetStrongRsaKeys2048 path: " << path << std::endl;
   ANON_TOKENS_ASSIGN_OR_RETURN(auto key_pair, ParseRsaKeysFromFile(path));
   return std::make_pair(std::move(key_pair.first), std::move(key_pair.second));
 }
